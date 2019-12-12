@@ -1,0 +1,11 @@
+<div style="text-align:center">
+    <h1>Lista de Fotos Personal</h1>
+   </div>
+   <div class="gallery" *ngFor="let image of detallePersonal">
+    <a target="_blank" [href]="image.href">
+    <img [src]="image.thumbnailUrl" width="300" height="200">
+    </a>
+    <div class="desc">ID: {{image.id}}</div>
+    <div class="desc">Titulo: {{image.title}}</div>
+    <div class="desc">URL: {{image.url}}</div>
+</div>

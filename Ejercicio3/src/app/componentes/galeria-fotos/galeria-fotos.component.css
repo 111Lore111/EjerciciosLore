@@ -1,0 +1,17 @@
+div.gallery {
+    margin: 100px;
+    border: none;
+    float: left;
+    width: 240px;
+    height: 300px;
+   }
+   div.gallery img {
+    margin-top: 10px;
+    width: 75%;
+    height: auto;
+    border-radius: 50%;
+   }
+    div.desc {
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
