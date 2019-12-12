@@ -1,0 +1,37 @@
+<div class="row"> <!-- Definir linea-->
+  <div class="col text-center">
+    <img src="assets/img/{{ intentos }}.png" class="ahorcado-img">
+    <h3>Intentos <small>{{ intentos }}/9</small></h3>
+  </div>
+</div>
+
+<div class="row"> <!-- Definir linea-->
+  <div class="col text-center">
+    <h1>{{ palabraOculta }} </h1>
+  </div>
+</div>
+
+<div class="row" *ngIf="gano"> <!-- Definir linea-->
+  <div class="col text-center">
+    <h1>Felicidades, has Ganado!!!</h1>
+    <h4>:D</h4>
+  </div>
+</div>
+
+<div class="row" *ngIf="perdio"> <!-- Definir linea-->
+  <div class="col text-center">
+    <h1>Lo siento, has perdido :c</h1>
+    <h4>La palabra correcta era:
+      {{ palabra }}</h4>
+  </div>
+</div>
+
+<div class="row" *ngIf="!gano && !perdio"> <!-- Definir linea-->
+  <div class="col text-center">
+
+    <button (click)="comprobar( letra )" *ngFor="let letra of letras" class="btn btn-primary">
+      <!-- interpolación de string, esto incrustara los valores-->
+      {{ letra }}
+    </button>
+  </div>
+</div>
