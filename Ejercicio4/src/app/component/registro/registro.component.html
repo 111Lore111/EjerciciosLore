@@ -1,0 +1,68 @@
+<!-- se insertaran los controles del ts -->
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+      <h2>Registro de Usuario</h2>
+    </div>
+  </div>
+
+  <form [formGroup]="formG">
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <mat-form-field class="w-100"> 
+          <input matInput id="name" name="name" placeholder="Nombre" formControlName="name" required pattern="[a-zA-Z]*" maxlength="20" appOnlyChar onpaste="return false"> 
+          <mat-error *ngIf="formG.controls.name.errors && formG.controls.name.errors.required && (formG.controls.name.dirty || formG.controls.name.touched)">Campo requerido</mat-error>
+          <mat-error *ngIf="formG.controls.name.errors && formG.controls.name.errors.pattern && (formG.controls.name.dirty || formG.controls.name.touched)">No se pueden ingresar números</mat-error>
+          <!-- appOnlyChar -->
+        </mat-form-field>
+      </div>
+
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <mat-form-field class="w-100">
+          <input matInput id="lastname" name="lastname" placeholder="Apellido" formControlName="lastname" required pattern="[a-zA-Z]*" appOnlyChar onpaste="return false">
+          <mat-error *ngIf="formG.controls.name.errors && formG.controls.name.errors.required && (formG.controls.name.dirty || formG.controls.name.touched)">Campo requerido</mat-error>
+          <mat-error *ngIf="formG.controls.name.errors && formG.controls.name.errors.pattern && (formG.controls.name.dirty || formG.controls.name.touched)">No se pueden ingresar números</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+      <div class="row justify-content-center">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+              <mat-form-field class="w-100">
+                  <input matInput id="username" name="username" placeholder="Usuario" formControlName="username" required appOnlyChar onpaste="return false">
+                  <mat-error *ngIf="formG.controls.name.errors && formG.controls.name.errors.required && (formG.controls.name.dirty || formG.controls.name.touched)">Campo requerido</mat-error>
+                  <mat-error *ngIf="formG.controls.name.errors && formG.controls.name.errors.pattern && (formG.controls.name.dirty || formG.controls.name.touched)">No se pueden ingresar números</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+              <mat-form-field class="w-100">
+                 <input matInput id="pws" name="pws" placeholder="Contraseña" formControlName="pws" required>
+                 <mat-error *ngIf="formG.controls.name.errors && formG.controls.name.errors.required && (formG.controls.name.dirty || formG.controls.name.touched)">Campo obligatorio</mat-error>
+              </mat-form-field>
+            </div>
+      </div>
+      <div class="row justify-content-center">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+              <mat-form-field class="w-100">
+                  <mat-select>
+                      <mat-option *ngFor="let animal of animalList" [value]="animal.id">
+                        {{ animal.name }}
+                      </mat-option>
+                  </mat-select>
+              </mat-form-field>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+              
+          </div>
+        </div>
+        <div class="row justify-content-center"><div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+          <button mat-button type="button" mat-raised-button color="secondary" routerLink="/login" class="w-100">Volver</button>
+        </div>
+
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+          <button mat-button type="button" mat-raised-button color="primary" [disabled]="!formG.valid" (click)="saveUser()" class="w-100">guardar</button>
+        </div>
+      </div>
+      
+  </form>
+</div>

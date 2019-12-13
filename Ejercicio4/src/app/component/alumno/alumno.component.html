@@ -1,0 +1,34 @@
+<!-- <p style="text-align: center;">alumno works!</p>
+<app-calificacion style="text-align: center;" [message]="messageValue" (response)="printMessage($event)"></app-calificacion> -->
+<div class="container">
+    <h4>Datos Alumno</h4>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8 mb-3">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef i18n>Acciones</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button class= 'btn btn-info' (click)="setAlumno(element)" >Ver</button>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <div class="row justify-content-center">
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+           <button mat-button type="button" mat-raised-button color="primary" routerLink="/guardarAlumno" class="w-100">Registrar Alumno</button>
+       </div>
+  </div>
+    <app-calificacion [alumnoName]="alumnoName" [alumnoId]="alumnoId" (response)="printMessage($event)"></app-calificacion>
+</div>
+
+  

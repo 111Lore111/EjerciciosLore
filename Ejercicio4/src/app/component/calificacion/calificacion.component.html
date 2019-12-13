@@ -1,0 +1,42 @@
+<!-- <p style="text-align: center;">calificacion works!</p>
+<p>{{ message }}</p>
+<button type="button" (click)="sendMessaje()">Enviar mensaje</button> -->
+
+<ng-container *ngIf="alumnoId">
+    <h4>Calificaciones {{ alumnoName }}</h4>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="curso">
+        <mat-header-cell *matHeaderCellDef> Curso </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.curso}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="nota1">
+        <mat-header-cell *matHeaderCellDef> Nota1 </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.nota1}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="nota2">
+        <mat-header-cell *matHeaderCellDef> Nota2 </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.nota2}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="nota3">
+        <mat-header-cell *matHeaderCellDef> Nota3 </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.nota3}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="promedio">
+        <mat-header-cell *matHeaderCellDef> Promedio </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.promedio}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</ng-container>
+
